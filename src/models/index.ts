@@ -1,4 +1,4 @@
-import { Models } from "@rematch/core";
+import { Models, RematchDispatch, RematchRootState } from "@rematch/core";
 import { dolphins } from "./dolphins";
 import { sharks } from "./sharks";
 
@@ -10,6 +10,11 @@ export interface RootModel extends Models {
   sharks: typeof sharks;
 }
 
+// model names
 export type ModelKey = "dolphins" | "sharks";
+
+// for model or store defination
+export type StoreDispatch = RematchDispatch<RootModel>;
+export type StoreState = RematchRootState<RootModel>;
 
 export default rootModel;

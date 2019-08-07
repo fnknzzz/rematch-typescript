@@ -1,5 +1,5 @@
 import { createModel } from "@rematch/core";
-import { Dispatch } from "../store";
+import { StoreDispatch } from "./";
 import { delay } from "../helpers";
 
 export type DolphinsState = number;
@@ -10,7 +10,7 @@ const model = {
   reducers: {
     increment: (state: DolphinsState) => state + 1
   },
-  effects: (dispatch: Dispatch) => ({
+  effects: (dispatch: StoreDispatch) => ({
     async incrementAsync() {
       await delay(500);
       // `increment` field would be checked
