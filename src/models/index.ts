@@ -2,7 +2,7 @@ import { Models, RematchDispatch, RematchRootState } from "@rematch/core";
 import { dolphins } from "./dolphins";
 import { sharks } from "./sharks";
 
-const rootModel: RootModel = { dolphins, sharks };
+const rootModel = { dolphins, sharks };
 
 // add interface to avoid recursive type checking
 export interface RootModel extends Models {
@@ -11,7 +11,7 @@ export interface RootModel extends Models {
 }
 
 // model names
-export type ModelKey = "dolphins" | "sharks";
+export type ModelKey = keyof typeof rootModel;
 
 // for model or store defination
 export type StoreDispatch = RematchDispatch<RootModel>;
