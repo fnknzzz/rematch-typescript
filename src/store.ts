@@ -1,4 +1,4 @@
-import { init } from "@rematch/core";
+import { init, Action } from "@rematch/core";
 import models, { StoreState, ModelKey, StoreDispatch } from "./models";
 
 export const store = init({
@@ -10,5 +10,5 @@ export type Store = typeof store;
 // for Component using, in order to get strict field constraint
 export type RootState = Pick<StoreState, ModelKey>;
 export type Dispatch = {
-  (...args: Parameters<StoreDispatch>): ReturnType<StoreDispatch>;
+  <T extends Action>(action: T): T;
 } & Pick<StoreDispatch, ModelKey>;

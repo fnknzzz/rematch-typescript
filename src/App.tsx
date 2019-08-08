@@ -13,7 +13,8 @@ const mapDispatch = (dispatch: Dispatch) => ({
   incrementDolphinsAsync: dispatch.dolphins.incrementAsync,
   incrementSharks: () => dispatch.sharks.increment(1),
   incrementSharksAsync: () => dispatch.sharks.incrementAsync(1),
-  incrementSharksAsync2: () => dispatch.sharks.incrementAsync(3)
+  incrementSharksAsync2: () =>
+    dispatch({ type: "sharks/incrementAsync", payload: 2 })
 });
 
 type connectedProps = ReturnType<typeof mapState> &
