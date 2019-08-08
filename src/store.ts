@@ -1,5 +1,5 @@
-import { init, Action } from "@rematch/core";
-import models, { StoreState, ModelKey, StoreDispatch } from "./models";
+import { init, RematchRootState, RematchDispatch } from "@rematch/core";
+import models, { RootModel } from "./models";
 
 export const store = init({
   models
@@ -7,8 +7,9 @@ export const store = init({
 
 export type Store = typeof store;
 
+// for store using to avoid recursive check
+export type StoreDispatch = RematchDispatch<RootModel>;
+
 // for Component using, in order to get strict field constraint
-export type RootState = Pick<StoreState, ModelKey>;
-export type Dispatch = {
-  <T extends Action>(action: T): T;
-} & Pick<StoreDispatch, ModelKey>;
+export type RootState = RematchRootState<typeof models>;
+export type Dispatch = typeof store.dispatch;

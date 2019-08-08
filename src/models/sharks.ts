@@ -1,5 +1,5 @@
 import { createModel } from "@rematch/core";
-import { StoreDispatch } from "./";
+import { StoreDispatch } from "../store";
 import { delay } from "../helpers";
 
 export type SharksState = number;
